@@ -1,0 +1,219 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=VT323");
+body,
+html,
+#root {
+  background-color: #000000;
+  color: #ffffff;
+  font: 18px "VT323", monospace;
+  margin: 0;
+  width: 100vw;
+}
+
+#combatLog {
+  font-size: 16px;
+}
+#combatLog ul {
+  margin: 0;
+  padding: 0;
+}
+#combatLog ul li {
+  list-style: none;
+}
+#combatLog ul li:before {
+  color: #555555;
+  content: "> ";
+}
+
+#grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+#grid .mapRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+#grid .mapRow .mapCell {
+  font-size: 10px;
+  text-align: center;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+}
+#grid .mapRow .notvisible {
+  visibility: hidden;
+}
+#grid .mapRow .boss {
+  background-color: #550000;
+}
+#grid .mapRow .door {
+  background-color: #aa5500;
+}
+#grid .mapRow .easy {
+  background-color: #ff5555;
+}
+#grid .mapRow .floor {
+  background-color: #aa5500;
+}
+#grid .mapRow .fog {
+  background-color: #000000;
+}
+#grid .mapRow .healing {
+  background-color: #55ff55;
+}
+#grid .mapRow .item {
+  background-color: #ffff55;
+}
+#grid .mapRow .medium {
+  background-color: #aa0000;
+}
+#grid .mapRow .player {
+  background-color: #ffffff;
+}
+#grid .mapRow .stairsDown, #grid .mapRow .stairsUp {
+  background-color: #ffff55;
+  color: #aa5500;
+}
+#grid .mapRow .stairsDown:after {
+  content: "▼";
+}
+#grid .mapRow .stairsUp:after {
+  content: "▲";
+}
+#grid .mapRow .wall, #grid .mapRow .corner {
+  background-color: #555555;
+}
+
+#playerInfo {
+  font-size: 16px;
+}
+#playerInfo .playerInfoBar {
+  align-items: center;
+  display: flex;
+}
+#playerInfo .playerInfoBar .bar {
+  align-items: center;
+  border: 2px solid #555555;
+  display: flex;
+  height: 20px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  width: 200px;
+}
+#playerInfo .playerInfoBar .bar .remaining,
+#playerInfo .playerInfoBar .bar .missing {
+  height: 100%;
+  margin: 0;
+  z-index: 5;
+}
+#playerInfo .playerInfoBar .bar .remaining {
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+#playerInfo .playerInfoBar .bar .missing {
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+#playerInfo .playerInfoBar .bar .infoText {
+  background-color: transparent;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+#playerInfo .playerInfoBar .hp .remaining {
+  background-color: #aa0000;
+}
+#playerInfo .playerInfoBar .hp .missing {
+  background-color: #000000;
+}
+#playerInfo .playerInfoBar .xp .remaining {
+  background-color: #5555ff;
+}
+#playerInfo .playerInfoBar .xp .missing {
+  background-color: #000000;
+}
+#playerInfo .playerLevel {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#playerInfo .levelInfo {
+  font-size: 16px;
+}
+#playerInfo .playerName {
+  font-size: 24px;
+}
+#playerInfo p {
+  margin: 5px;
+}
+
+#main {
+  align-items: stretch;
+  display: flex;
+  height: 100%;
+  margin: 0;
+}
+
+#center {
+  align-items: center;
+  border: 2px solid #aaaaaa;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  margin: 8px 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#center,
+.panel {
+  border-radius: 2px;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.panel {
+  border: 2px solid #555555;
+  margin: 8px;
+  width: 300px;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+#wrapper .footer {
+  flex-grow: 0;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 12px;
+}
+#wrapper .footer .author a:hover {
+  text-decoration: underline;
+}
+#wrapper .footer .author .button-group {
+  display: flex;
+}
+#wrapper .footer .author .button-group .button {
+  color: #ffffff;
+  padding: 8px 4px 4px 0;
+}
+#wrapper .footer .heading {
+  font: 32px "VT323", monospace;
+}
+#wrapper #main {
+  flex-grow: 1;
+}
+#wrapper a {
+  color: #5555ff;
+  text-decoration: none;
+}

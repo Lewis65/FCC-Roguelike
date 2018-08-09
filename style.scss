@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css?family=VT323");
+
+$color-bg: #000000;
+$color-bg2: #555555;
+$color-bg3: #aaaaaa;
+$color-link: #5555ff;
+
+$color-white: #ffffff;
+$color-brightblue: #5555ff;
+$color-blue: #0000aa;
+$color-brightred: #ff5555;
+$color-red: #aa0000;
+$color-brightgreen: #55ff55;
+$color-green: #00aa00;
+$color-yellow: #ffff55;
+$color-brown: #aa5500;
+
+$color-easyenemy: $color-brightred;
+$color-mediumenemy: $color-red;
+$color-bossenemy: #550000;
+
+$font-heading: 32px "VT323", monospace;
+$font-body: 18px "VT323", monospace;
+
+$footer-height: 60px;
+$footer-padding: 12px;
+
+body,
+html,
+#root {
+	background-color: $color-bg;
+	color: $color-white;
+	font: $font-body;
+	margin: 0;
+	width: 100vw;
+}
+
+#combatLog {
+	font-size: 16px;
+	ul {
+		li {
+			list-style: none;
+			&:before {
+				color: $color-bg2;
+				content: "> ";
+			}
+		}
+		margin: 0;
+		padding: 0;
+	}
+}
+
+#grid {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	.mapRow {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		.mapCell {
+			font-size: 10px;
+			text-align: center;
+			display: inline-block;
+			height: 10px;
+			width: 10px;
+		}
+		.notvisible {
+			visibility: hidden;
+		}
+		.boss {
+			background-color: $color-bossenemy;
+		}
+		.door {
+			background-color: $color-brown;
+		}
+		.easy {
+			background-color: $color-easyenemy;
+		}
+		.floor {
+			background-color: $color-brown;
+		}
+		.fog {
+			background-color: $color-bg;
+		}
+		.healing {
+			background-color: $color-brightgreen;
+		}
+		.item {
+			background-color: $color-yellow;
+		}
+		.medium {
+			background-color: $color-mediumenemy;
+		}
+		.player {
+			background-color: $color-white;
+		}
+		.stairsDown, .stairsUp {
+			background-color: $color-yellow;
+			color: $color-brown;
+		}
+		.stairsDown:after {
+			content: "▼"
+		}
+		.stairsUp:after {
+			content: "▲"
+		}
+		.wall, .corner {
+			background-color: $color-bg2;
+		}
+	}
+}
+
+#playerInfo {
+	font-size: 16px;
+	.playerInfoBar {
+		align-items: center;
+		display: flex;
+		.bar {
+			align-items: center;
+			border: 2px solid $color-bg2;
+			display: flex;
+			height: 20px;
+			margin: 0 auto;
+			padding: 0;
+			position: relative;
+			width: 200px;
+			.remaining,
+			.missing {
+				height: 100%;
+				margin: 0;
+				z-index: 5;
+			}
+			.remaining {
+				left: 0;
+				top: 0;
+				bottom: 0;
+			}
+			.missing {
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+			.infoText {
+				background-color: transparent;
+				position: absolute;
+				text-align: center;
+				width: 100%;
+				z-index: 10;
+			}
+		}
+		.hp {
+			.remaining {
+				background-color: $color-red;
+			}
+			.missing {
+				background-color: $color-bg;
+			}
+		}
+		.xp {
+			.remaining {
+				background-color: $color-brightblue;
+			}
+			.missing {
+				background-color: $color-bg;
+			}
+		}
+	}
+	.playerLevel {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	.levelInfo {
+		font-size: 16px;
+	}
+	.playerName {
+		font-size: 24px;
+	}
+	p {
+		margin: 5px;
+	}
+}
+
+#main {
+	align-items: stretch;
+	display: flex;
+	height: 100%;
+	margin: 0;
+}
+
+#center {
+	align-items: center;
+	border: 2px solid $color-bg3;
+	display: flex;
+	flex-grow: 1;
+	justify-content: space-around;
+	margin: 8px 0;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+#center,
+.panel {
+	border-radius: 2px;
+	padding: 8px;
+	overflow-y: auto;
+}
+.panel {
+	border: 2px solid $color-bg2;
+	margin: 8px;
+	width: 300px;
+}
+
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	.footer {
+		flex-grow: 0;
+		.author {
+			a:hover {
+				text-decoration: underline;
+			}
+			.button-group {
+				display: flex;
+				.button {
+					color: #ffffff;
+					padding: 8px 4px 4px 0;
+				}
+			}
+		}
+		.heading {
+			font: $font-heading;
+		}
+		display: flex;
+		height: $footer-height;
+		justify-content: space-between;
+		padding: $footer-padding;
+	}
+	#main {
+		flex-grow: 1;
+	}
+	a {
+		color: $color-link;
+		text-decoration: none;
+	}
+}
